@@ -5,16 +5,16 @@ pipeline {
     stages ('Build') {
             steps {
 
-		sh 'mvn clean install'
+		    sh 'mvn clean install'
 
             }
 
 	stage('Post_Build') {
 	    steps {
 	    	archive '**/*'
-		deploy adapters: [tomcat9(credentialsId: 'b959dce6-4d45-41a0-a948-62591fa5f48a', path: '', url: '')], contextPath: null, war: 'target/sparkjava-hello-world-1.0.war'
+		    deploy adapters: [tomcat9(credentialsId: 'b959dce6-4d45-41a0-a948-62591fa5f48a', path: '', url: '')], contextPath: null, war: 'target/sparkjava-hello-world-1.0.war'
 
-		}
+		    }
 
 
                 }
