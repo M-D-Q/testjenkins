@@ -10,7 +10,7 @@ pipeline {
     stage('post build') {
       steps {
         archiveArtifacts '**/*'
-	deploy adapters: [tomcat9(credentialsId: 'c876cbc4-cdfc-456b-91dd-dc1ae86773a5', path: '', url: 'http://172.17.0.4:8080')], contextPath: 'chocolat', war: '*/*.war'
+	deploy adapters: [tomcat9(credentialsId: 'c876cbc4-cdfc-456b-91dd-dc1ae86773a5', path: '', url: 'http://172.17.0.4:8080')], contextPath: null, war: '*/*.war'
 
       }
     }
